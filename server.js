@@ -80,15 +80,12 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error'
   });
 });
-
-// 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({ 
     success: false, 
     message: 'Route not found' 
   });
 });
-
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Backend server is running on port ${PORT}`);
@@ -104,8 +101,6 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
   });
 });
-
-// Handle SIGTERM signal
 process.on('SIGTERM', () => {
   console.log('👋 SIGTERM received. Shutting down gracefully...');
   server.close(() => {
