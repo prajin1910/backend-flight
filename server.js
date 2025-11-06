@@ -3,8 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-
-// Import routes
 const authRoutes = require('./routes/auth');
 const flightRoutes = require('./routes/flights');
 const bookingRoutes = require('./routes/bookings');
